@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="wizard_pchsorder" model="ir.ui.view">
+            <field name="name">cloudalia_transient.form.inherit</field>
+            <field name="model">create.purchaseorder_mrp</field>
+            <field name="inherit_id" ref="cloudalia_purchase_from_repair.view_transientmodel_wizard_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="warehouse" domain="[('code','=','incoming')]" options="{'no_create': True}"/>
+                </xpath>
+                <xpath expr="//button[@name='action_create_purchase_order_mrp']" position="replace">
+                    <button name="action_create_purchase_order_mrp_inherit" string="Create Purchase Order" type="object" class="btn-primary"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

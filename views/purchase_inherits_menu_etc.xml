@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="reception_action" model="ir.actions.act_window">
+        <field name="name">Recepcionado</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order.line</field>
+        <field name="view_mode">tree,search,form,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Recepcionado de piezas
+            </p>
+        </field>
+    </record>
+    
+    <menuitem 
+        id="reception_root" 
+        name="Recepcion" 
+        web_icon="filtro_comercial-main,static/description/icon_ph.png" 
+        sequence="101" 
+    />
+
+    <menuitem 
+        id="reception_recepcionado_root"
+        name="Recepcionado" 
+        parent="reception_root"
+        sequence="10" 
+    />
+
+    <menuitem 
+        id="reception_recepcionado"
+        name="Recepcionado" 
+        parent="reception_recepcionado_root"
+        sequence="10" 
+        action="reception_action"
+    />
+    <!--
+    <record id="action_reception_tree" model="ir.actions.act_window">
+        <field name="context">{}</field>
+        <field name="domain"></field>
+        <field name="name">Recepcionado</field>
+        <field name="res_model">filtrocom.main</field>
+        <field name="view_id" ref="view_purchase_order_tree_cd"/>
+    </record>
+
+    <record id="view_purchase_order_tree_cd" model="ir.ui.view">
+        <field name="name">purchase.order.line.tree.cd</field>
+        <field name="model">filtrocom.main</field>
+        <field name="arch" type="xml">
+            <tree string="Purchase Order Lines" create="false">
+                <field name="inherit_id" ref="project_issue.project_issue_kanban_view"/> 
+            </tree>
+        </field>
+    </record>
+    -->
+</odoo>
